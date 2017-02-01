@@ -9,9 +9,12 @@ import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
 import seedu.addressbook.ui.TextUi;
 
+import java.io.FileNotFoundException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+
+import static seedu.addressbook.storage.StorageFile.DEFAULT_STORAGE_FILE;
 
 
 /**
@@ -105,6 +108,7 @@ public class Main {
      */
     private CommandResult executeCommand(Command command)  {
         try {
+            checkStorageFileExists();
             command.setData(addressBook, lastShownList);
             CommandResult result = command.execute();
             storage.save(addressBook);
@@ -123,6 +127,13 @@ public class Main {
     private StorageFile initializeStorage(String[] launchArgs) throws InvalidStorageFilePathException {
         boolean isStorageFileSpecifiedByUser = launchArgs.length > 0;
         return isStorageFileSpecifiedByUser ? new StorageFile(launchArgs[0]) : new StorageFile();
+    }
+
+    private void checkStorageFileExists() throws FileNotFoundException {
+        if (!DEFAULT_STORAGE_FILE.exists()) {
+            throw new FileNotFoundException("File not found");
+        }
+
     }
 
 
