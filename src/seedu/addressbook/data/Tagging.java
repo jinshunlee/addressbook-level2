@@ -43,6 +43,6 @@ public class Tagging {
         } else {
             typeText = "-";
         }
-        return typeText + " " + taggedPerson.getName().toString() + " " + getPersonTag().toString();
+        return typeText + " " + taggedPerson.getName().toString() + " [" + getPersonTag().toString() + "]";
     }
 }
