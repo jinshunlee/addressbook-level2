@@ -37,12 +37,12 @@ public class Tagging {
 
     @Override
     public String toString() {
-        String type = "";
-        if (type .equals(TYPE.ADD)){
-            type = "ADD";
+        String typeText = "";
+        if (type.equals(TYPE.ADD)){
+            typeText = "+";
         } else {
-            type = "DELETE";
+            typeText = "-";
         }
-        return type + " " + taggedPerson.getName().toString() + " " + getPersonTag().toString();
+        return typeText + " " + taggedPerson.getName().toString() + " " + getPersonTag().toString();
     }
 }
