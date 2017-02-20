@@ -1,5 +1,6 @@
 package seedu.addressbook.data.person;
 
+import com.sun.org.apache.bcel.internal.generic.RETURN;
 import seedu.addressbook.data.exception.IllegalValueException;
 
 import java.util.Arrays;
@@ -58,6 +59,14 @@ public class Name {
     @Override
     public int hashCode() {
         return fullName.hashCode();
+    }
+
+    /**
+     * Returns true of the other name is very similar to this name.
+     * Two names are considered similar if ...
+     */
+    public boolean isSimilar(Name other) {
+        return false;
     }
 
 }
