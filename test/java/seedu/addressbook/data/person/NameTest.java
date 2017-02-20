@@ -20,7 +20,7 @@ public class NameTest {
     @Test
     public void isNameSimilar() {
         assertTrue(nameA.isSimilar(nameA));
-        assertFalse(nameA.isSimilar(nameB));
+        assertTrue(nameA.isSimilar(nameB));
         assertFalse(nameA.isSimilar(null));
     }
 
